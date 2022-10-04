@@ -20,7 +20,7 @@
     ></ion-searchbar>
     <ion-label
       *ngIf="!formulario.get('nombrePokemon').valid &&
-      formulario.get('nombrePokemon').errors.maxlenght &&
+      formulario.get('nombrePokemon').errors.required &&
       formulario.get('nombrePokemon').touched
       "
       color="danger"
