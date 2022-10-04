@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ObtenerPokemonService } from './servicios/obtener-pokemon.service';
 import { IonInfiniteScroll } from '@ionic/angular';
-import { FormBuilder, FormControl, FormGroup, Validator } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 @Component({
   selector: 'app-pokemones',
   templateUrl: './pokemones.page.html',
@@ -17,7 +17,11 @@ export class PokemonesPage implements OnInit {
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
-      nombrePokemon: new FormControl('valor:D',)
+      nombrePokemon: new FormControl('valor:D',[
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15)
+      ])
     });
     this.obtenerPokemon.obtener20Primeros();
   }
