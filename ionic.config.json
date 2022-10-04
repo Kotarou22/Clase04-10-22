@@ -1,0 +1,7 @@
+{
+  "name": "api_pokemon",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
