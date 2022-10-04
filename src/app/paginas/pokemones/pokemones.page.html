@@ -9,7 +9,13 @@
     <ion-progress-bar type="indeterminate"></ion-progress-bar>
   </ng-template>
   <ng-template #losDatos>
-    <ion-searchbar color="success" placeholder="Busca un Pokemon" show-clear-button="focus" ></ion-searchbar>
+    <ion-searchbar color="success"
+                   placeholder="Busca un Pokemon"
+                   show-clear-button="focus"
+                   animated="true"
+                   formControlName="nombrePokemon"
+    ></ion-searchbar>
+      {{ formulario.get('nombrePokemon') || json }}
     <ion-label>
     <app-info-pokemon *ngFor="let info of obtenerPokemon.informaciones"
                       [url]="info.url"
