@@ -8,14 +8,35 @@
   <ng-template #cargando>
     <ion-progress-bar type="indeterminate"></ion-progress-bar>
   </ng-template>
+
   <ng-template #losDatos>
+    <form [formGroup]="formulario" novalidate>
     <ion-searchbar color="success"
                    placeholder="Busca un Pokemon"
-                   show-clear-button="focus"
                    animated="true"
                    formControlName="nombrePokemon"
+                   [color]="
+                   !formulario.get('nombrePokemon').invalid && formulario.get('nombrePokemon').touched?'danger':'light'"
     ></ion-searchbar>
-      {{ formulario.get('nombrePokemon') || json }}
+    <ion-label
+      *ngIf="!formulario.get('nombrePokemon').valid &&
+      formulario.get('nombrePokemon').errors.maxlenght &&
+      formulario.get('nombrePokemon').touched
+      "
+      color="danger"
+    >
+      ESTE CAMPO ES REQUERIDO
+    </ion-label>
+    <!--
+      {{ formulario.get('nombrePokemon').valid }}<br>
+      {{ formulario.get('nombrePokemon').value }}<br>
+      {{ formulario.get('nombrePokemon').errors | json }}<br>
+      {{ formulario.get('nombrePokemon').touched }}<br>
+      {{ formulario.get('nombrePokemon').dirty }}
+    -->
+    </form>
+
+
     <ion-label>
     <app-info-pokemon *ngFor="let info of obtenerPokemon.informaciones"
                       [url]="info.url"
@@ -27,6 +48,7 @@
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </ion-label>
+
   </ng-template>
 <p *ngIf="obtenerPokemon.informaciones; then losDatos else cargando"></p>
 </ion-content>

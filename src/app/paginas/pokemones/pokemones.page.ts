@@ -17,7 +17,7 @@ export class PokemonesPage implements OnInit {
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
-      nombrePokemon: new FormControl('valor:D',[
+      nombrePokemon: new FormControl('',[
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(15)
