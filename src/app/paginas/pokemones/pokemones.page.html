@@ -15,8 +15,7 @@
                    placeholder="Busca un Pokemon"
                    animated="true"
                    formControlName="nombrePokemon"
-                   [color]="
-                   !formulario.get('nombrePokemon').invalid && formulario.get('nombrePokemon').touched?'danger':'light'"
+
     ></ion-searchbar>
     <!--
     <ion-label
@@ -32,22 +31,23 @@
       {{ formulario.get('nombrePokemon').errors | json }}<br>
       {{ formulario.get('nombrePokemon').touched }}<br>
       {{ formulario.get('nombrePokemon').dirty }}
-    </form>
     -->
+    </form>
+
 
 
     <ion-label>
-    <app-info-pokemon *ngFor="let info of obtenerPokemon.informaciones"
-                      [url]="info.url"
-    ></app-info-pokemon>
-    <ion-infinite-scroll (ionInfinite)="cargarMasPokemones($event)">
-      <ion-infinite-scroll-content
-        [loadingSpinner]="'circles'"
-        loadingText='Cargando Pokemons'>
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
-  </ion-label>
+      <app-info-pokemon *ngFor="let info of obtenerPokemon.informaciones"
+                        [url]="info.url"
+      ></app-info-pokemon>
+      <ion-infinite-scroll (ionInfinite)="cargarMasPokemones($event)">
+        <ion-infinite-scroll-content
+          [loadingSpinner]="'circles'"
+          loadingText='Cargando Pokemons'>
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-label>
 
   </ng-template>
-<p *ngIf="obtenerPokemon.informaciones; then losDatos else cargando"></p>
+  <p *ngIf="obtenerPokemon.informaciones; then losDatos else cargando"></p>
 </ion-content>

@@ -11,8 +11,8 @@ export class PokemonesPage implements OnInit {
   @ViewChild(IonInfiniteScroll) public miInfinito: IonInfiniteScroll;
   public formulario: FormGroup;
   constructor(
-    private obtenerPokemon: ObtenerPokemonService,
-    private formBuilder: FormBuilder
+    public obtenerPokemon: ObtenerPokemonService,
+    public formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {

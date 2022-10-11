@@ -8,13 +8,16 @@ import { PokemonPageRoutingModule } from './pokemon-routing.module';
 
 import { PokemonPage } from './pokemon.page';
 
+import { PokemonesPageModule } from '../pokemones/pokemones.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     PokemonPageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    PokemonesPageModule
   ],
   declarations: [PokemonPage]
 })
